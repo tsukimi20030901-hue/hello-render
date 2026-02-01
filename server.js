@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
 
-// RenderではPORT指定が必須
 const PORT = process.env.PORT || 3000;
 
+// ★ 環境変数を取得
+const message = process.env.MESSAGE;
+
 app.get("/", (req, res) => {
-  res.send("Hello, Render!");
+  res.send(`環境変数の値：${message}`);
 });
 
 app.listen(PORT, () => {
